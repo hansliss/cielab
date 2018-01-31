@@ -78,7 +78,7 @@ void xyz2rgb(float x, float y, float z, float *r, float *g, float *b) {
 
 float applyGamma_sub(float v) {
   if (v <= 0.0031308) return v*12.92;
-  else return powf(v * 1.055, 1/2.4) - 0.055;
+  else return powf(v * 1.055, (float)1/2.4) - 0.055;
 }
 
 void applyGamma(float r0, float g0, float b0, float *r, float *g, float *b) {
@@ -145,9 +145,9 @@ int main(int argc, char *argv[]) {
     break;
   }
   if (byte) {
-    v1 = floorf(v1 * (float)256);
-    v2 = floorf(v2 * (float)256);
-    v3 = floorf(v3 * (float)256);
+    v1 = floorf(v1 * (float)255);
+    v2 = floorf(v2 * (float)255);
+    v3 = floorf(v3 * (float)255);
   }
   printf("%g %g %g\n", v1, v2, v3);
   return 0;
