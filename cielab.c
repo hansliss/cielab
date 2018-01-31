@@ -31,13 +31,11 @@ float f(float t) {
 
 
 void matMult(float m2[3], float m1[3][3], float r[3]) {
-  int c, d, k;
+  int c, k;
   for (c = 0; c < 3; c++) {
     r[c] = 0;
-    for (d = 0; d < 1; d++) {
-      for (k = 0; k < 3; k++) {
-	r[c] += m1[c][k] * m2[k];
-      }
+    for (k = 0; k < 3; k++) {
+      r[c] += m1[c][k] * m2[k];
     }
   }
 }
